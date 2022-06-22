@@ -1,0 +1,16 @@
+{
+  "development": {
+    "username": "admin",
+    "password": "admin",
+    "database": "carelulu",
+    "host": "mysql",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "admin",
+    "password": "admin",
+    "database": "carelulu-tests",
+    "host": "db-test",
+    "dialect": "mysql"
+  }
+}

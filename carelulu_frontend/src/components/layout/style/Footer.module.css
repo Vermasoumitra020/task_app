@@ -1,0 +1,31 @@
+.footer {
+    bottom: 0;
+    background-color: #00AAA9;
+    width: 100%;
+    margin-top: 6rem
+}
+
+.footerInfo {
+    font-size: 14px;
+    padding: 2px 0px;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    color:white;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #CCEEED;
+}
+
+.footerButton {
+    background-color: white !important;
+    box-shadow: none !important;
+    width: 100% !important;
+    color: #00AAA9 !important;
+    margin-left: 1rem !important;
+    font-size: 12px !important;
+}

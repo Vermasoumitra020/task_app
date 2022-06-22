@@ -1,0 +1,58 @@
+version: '3.9'
+services:
+  node:
+    build:
+      dockerfile: 'Dockerfile'
+      context: .
+    image: 'node'
+    container_name: 'node-service'
+    depends_on:
+      - mysql
+    ports:
+      - 8000:3000
+    platform: linux/x86_64
+#    volumes:
+#      - .:/usr/src/app
+    env_file:
+      - .envs/.local/.node
+    networks:
+      - bridge
+
+  mysql:
+    image: mysql:latest
+    restart: always
+    env_file:
+      - .envs/.local/.db
+    volumes:
+      - mysql-data:/var/lib/mysql
+    ports:
+      - 3306:3306
+    networks:
+      - bridge
+
+  db-test:
+    image: mysql:latest
+    env_file:
+      - .envs/.local/.test-db
+    volumes:
+      - tests-mysql-data:/var/lib/mysql
+    ports:
+      - 3307:3306
+    networks:
+      - bridge
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 9000:8080
+    networks:
+      - bridge
+
+volumes:
+  mysql-data:
+  tests-mysql-data:
+
+networks:
+  bridge:
+    driver: bridge

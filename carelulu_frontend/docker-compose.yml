@@ -1,0 +1,30 @@
+version: '3.9'
+
+services:
+  react:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      BACKEND_SERVICE: 'http://node:8000/api/'
+    ports:
+      - "3000:3000"
+    networks:
+      - frontend
+      - carelulu_bridge
+    volumes:
+      - .:/usr/src/app
+
+networks:
+  frontend:
+    driver: bridge
+  carelulu_bridge:
+    external: true
+
+volumes:
+  react_data:
+
+
+
+
+
